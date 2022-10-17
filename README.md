@@ -49,6 +49,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ```
 ``: windows: Alt Gr } 
+tecla de windows+flecha para abajo hace mas pequeñas la aplicaciones del escritorio
 
 ```
 
