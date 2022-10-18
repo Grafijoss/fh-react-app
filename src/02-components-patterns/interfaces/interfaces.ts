@@ -1,4 +1,4 @@
-import { Children, ReactElement } from "react"
+import { ReactElement } from "react"
 
 export interface ProductCardProps {
     children?: ReactElement | ReactElement[]
