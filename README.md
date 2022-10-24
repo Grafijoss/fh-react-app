@@ -57,3 +57,114 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 git checkout -- . : Regresar el branch sin cambios 
 
 ```
+
+## Eslint 
+
+* npm install eslint -D
+* npx eslint --init
+* npm install -D eslint-plugin-jsx-a11y eslint-plugin-react-hooks
+* instalar extension de prettier
+* npm install -D prettier eslint-plugin-prettier eslint-config-prettier
+```json
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "standard-with-typescript",
+        "plugin:jsx-a11y/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "overrides": [
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": [
+        "react",
+        "prettier",
+        "jsx-a11y",
+        "react-hooks",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "prettier/prettier": "error",
+        "react/react-in-jsx-scope": "off"
+    }
+}
+```
+* Solo archivos ts
+```js
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true
+  },
+  extends: ['plugin:react/recommended', 'standard-with-typescript', 'prettier'],
+  overrides: [
+    {
+      files: ['*.ts?(x)', '**/*.ts?(x)'],
+      extends: [
+        'plugin:react/recommended',
+        'standard-with-typescript',
+        'plugin:jsx-a11y/recommended',
+        'plugin:react-hooks/recommended',
+        'prettier'
+      ],
+      overrides: [],
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        project: './tsconfig.json'
+      },
+      plugins: [
+        'react',
+        'prettier',
+        'jsx-a11y',
+        'react-hooks',
+        '@typescript-eslint'
+      ],
+      rules: {
+        'prettier/prettier': 'error',
+        'react/react-in-jsx-scope': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off'
+        // "trailingComma": "none"
+      }
+    }
+  ],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module'
+  },
+  plugins: ['react'],
+  rules: {
+    'prettier/prettier': 'error'
+    // "trailingComma": "none"
+  }
+}
+
+```
+* Creamos el .prettierrc: touch .prettierrc
+* * Añadimos las reglas
+```json
+{
+    "singleQuote": true,
+    "semi": true,
+    "endOfLine": "auto",
+    "tabWidth": 2,
+    "trailingComma": "none"
+}
+```
+* añadimos la configuracion para formatear al guardar y guardar automaticamente
+* * se puede añadir solo al proyecto .vscode/settings.json
+```json
+"editor.codeActionsOnSave": { 
+    "source.fixAll.eslint": true 
+},
+"files.autoSave": "afterDelay",
+```
