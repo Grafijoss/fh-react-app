@@ -30,8 +30,12 @@ module.exports = {
       rules: {
         'prettier/prettier': 'error',
         'react/react-in-jsx-scope': 'off',
-        '@typescript-eslint/explicit-function-return-type': 'off'
-        // "trailingComma": "none"
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/consistent-type-assertions': 'off',
+        '@typescript-eslint/strict-boolean-expressions': 'off',
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': 'warn',
+        '@typescript-eslint/prefer-optional-chain': 'off'
       }
     }
   ],

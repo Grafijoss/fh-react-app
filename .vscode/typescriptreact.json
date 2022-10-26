@@ -1,0 +1,55 @@
+{
+	"reactArrowFunctionComponent": {
+		"prefix": "rafc",
+		"body": [
+			"export const ${1:Navigation} = () => {",
+			"   return (",
+			"      <div>",
+			"",
+			"      </div>",
+			"   )",
+			"}"
+		]
+	},
+	"Show red console": {
+		"prefix": "clgr",
+		"body": "console.log('%c${1:Red Console}', 'color: white; background: red;')",
+		"description": "Show a console.log with background red and white color"
+	},
+	"UseReducer": {
+		"prefix": "usereducer",
+		"body": "const [state, dispatch] = useReducer(${1:reducer}, ${2:initialState}, ${3:init)"
+	},
+	"switch": {
+		"prefix": "switchh",
+		"body": [
+			"switch (key) {",
+			"   case value:",
+			"      break",
+			"",
+			"   default:",
+			"      break",
+			"",
+			"}"
+		]
+	},
+	"stringifyCode": {
+		"prefix": "codsty",
+		"body": "<code>{JSON.stringify(${1:shopingCart}, null, 5)}</code>"
+	},
+	"obectToString": {
+		"prefix": "objtostr",
+		"body": "Object.entries(${1:obj}).map(([key, element]) => {})"
+	},
+	"useEffect": {
+		"prefix": "useff",
+		"body": [
+			"useEffect(() => {",
+			"  effect",
+			"  return () => {",
+			"    cleanup",
+			"  }",
+			" }, [input])"
+		]
+	}
+}
