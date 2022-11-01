@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import {
   ProductButtons,
   ProductCard,
@@ -6,48 +6,12 @@ import {
   ProductTitle
 } from '../components'
 import '../styles/custom-styles.css'
-import { onChangeArgs, Product } from '../interfaces/interfaces'
 
-const product1 = {
-  id: '1',
-  title: 'Coffee Mug - Card',
-  img: './coffee-mug.png'
-}
-const product2 = {
-  id: '2',
-  title: 'Coffee Mug - Meme',
-  img: './coffee-mug2.png'
-}
-
-const products: Product[] = [product1, product2]
-
-interface ProductInCart extends Product {
-  count: number
-}
+import { useShopingCart } from '../hooks/useShopingCart'
+import { products } from '../data/products'
 
 export const ShoppingPage: FC = () => {
-  const [shopingCart, setShopingCart] = useState<{
-    [key: string]: ProductInCart
-  }>({})
-
-  const onProductCountChange = ({ count, product }: onChangeArgs) => {
-    // console.log({ count, product })
-    setShopingCart((oldShopingCard) => {
-      if (count === 0) {
-        // delete { ...oldShopingCard }[product.id]
-        const { [product.id]: toDelete, ...rest } = oldShopingCard
-        return rest
-      }
-
-      return {
-        ...oldShopingCard,
-        [product.id]: {
-          ...product,
-          count
-        }
-      }
-    })
-  }
+  const { onProductCountChange, shopingCart } = useShopingCart()
 
   return (
     <div>
